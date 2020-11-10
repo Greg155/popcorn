@@ -43,10 +43,10 @@ class App extends Component {
         { favorites.length > 0 && <FavoritesList favorites={favorites} /> }
     
         <div className="col-sm-12">
-          {movies.map( data => (
+          {movies.map( movie => (
             <Movie
-              movie={data}
-              key={`${data.id}-movie`}
+              movie={movie}
+              key={`${movie.id}-movie`}
               handleToggle={this.handleToggle}
             />
           ))}

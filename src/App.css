@@ -1,0 +1,36 @@
+/*Remove some bootstrap behaviors on buttons*/
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+  outline: none;
+}
+
+/*  */
+
+.video-card {
+  padding: 8px;
+}
+
+.love-btn {
+  font-size: 35px;
+  opacity: 0.9;
+}
+
+.love-btn:hover {
+  color: #da0b0b;
+  opacity: 1;
+}
+
+.love-btn.favorite {
+  color: #da0b0b;
+  opacity: 1;
+}
+
+
+.poster {
+  height: 200px;
+}

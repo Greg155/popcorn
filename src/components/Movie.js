@@ -12,14 +12,13 @@ class Movie extends Component{
 
     const {movie, handleToggle } = this.props;
 
-
-
     return(
       <div className="col-sm-3 video-card center-block embed-responsive-16by9">
         <button
-          className={"btn love-btn center-block"}
+          className={this.state.isFavorite? "love-btn-favorite" : "love-btn"}
           title={movie.title}
-          onClick={(e) => handleToggle(e)} 
+          onClick={(e) => { handleToggle(e); 
+              this.setState({isFavorite: !this.state.isFavorite})}} 
           //This is an other strategy than listening to event object, 
           //and accesing data via event.target.id for instance.
           style={{

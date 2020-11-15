@@ -26,21 +26,30 @@ class App extends Component {
       .get("https://raw.githubusercontent.com/wildcodeschoolparis/datas/master/movies.json")
       .then(({ data }) => {
         this.setState({ movies: data.movies });
+        this.setState({ movies: this.state.movies.map((elem) => 
+          elem.title === elem.title ? { ...elem, isFavorite: false } : elem)})
       });
+    
   };
 
-  handleToggle = movie => {
+  handleToggle = (movie) => {
     // This work to add a favorite but not to toggle one from the list
     // this.setState({
     //   favorites: [...this.state.favorites, movie]
     // })
+    let movieToUpdate;
+    this.state.movies.map((item) => {
+      if(item.title === movie.target.title){
+        item.isFavorite = !item.isFavorite;
+        movieToUpdate = item;
+      }
+    })
 
     this.setState(prevState => ({
-      favorites: prevState.favorites.includes(movie)
-        ? prevState.favorites.filter(favory => favory !== movie)
-        : [...prevState.favorites, movie]
+      favorites: prevState.favorites.includes(movieToUpdate)
+        ? prevState.favorites.filter(favory => favory.title !== movieToUpdate.title)
+        : [...prevState.favorites, movieToUpdate]
     }));
-
   };
 
   componentDidMount() {

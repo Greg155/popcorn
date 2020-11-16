@@ -16,10 +16,6 @@ class App extends Component {
     this.handleRandomIndex = this.handleRandomIndex.bind(this);
   }
 
-  randomMovie(array) {
-    this.setState({ favoriteList: array });
-  }
-
   handleToggle = (movie) => {
     this.setState((prevState) => ({
       favoriteList: prevState.favoriteList.includes(movie)
